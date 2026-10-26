@@ -286,10 +286,13 @@ fn main() -> Result<(), BuildError> {
         .allowlist_item("dds_.*")
         .allowlist_item("ddsi_.*")
         .allowlist_item("ddsrt_.*")
+        .allowlist_item("DDS_XTypes_.*")
         .allowlist_var("DDS_.*")
         .allowlist_var("DOMAIN_DEFAULT")
         .allowlist_var("DURATION_INFINITE")
         .allowlist_var("TIME_NEVER")
+        // Builtin topic pseudo handles declared in `wrapper.h`.
+        .allowlist_var("BUILTIN_TOPIC_.*")
         .formatter(bindgen::Formatter::Prettyplease)
         .layout_tests(true);
 
